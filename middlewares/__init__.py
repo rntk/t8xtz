@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
+from .auth import AuthMiddleware
 
 def add_middlewares(app: FastAPI):
     app.add_middleware(
@@ -9,3 +10,4 @@ def add_middlewares(app: FastAPI):
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    app.add_middleware(AuthMiddleware)
